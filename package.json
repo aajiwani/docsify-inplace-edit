@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx parcel build src/index.js --out-file docsify-websequencediagrams.js --no-minify --no-source-maps",
-    "park-build-artifact": "cp -R dist ./example",
+    "build": "npx parcel build src/index.js --no-optimize --no-source-maps",
+    "park-build-artifact": "rm -rf ./example/dist && mkdir ./example/dist && mv index.js ./example/dist/docsify-inplace-edit.js",
     "ci_tests": "npx cypress run --headless -b chrome",
     "local_tests": "npx cypress open",
     "example": "npm run build && npm run park-build-artifact && docsify serve example"
