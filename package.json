@@ -11,8 +11,8 @@
     "url": "git+https://github.com/aajiwani/docsify-inplace-edit.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Amir Ali Jiwani <amirali.jiwani89@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/aajiwani/docsify-inplace-edit/issues"
   },
