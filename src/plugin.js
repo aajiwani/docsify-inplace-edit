@@ -6,6 +6,37 @@
 // };
 
 let plugin = (hook, vm) => {
+    hook.afterEach((html, next) => {
+        // We will load the HTML inside a DOM node to allow for manipulation
+        var htmlElement = document.createElement('div');
+        htmlElement.innerHTML = html;
+
+        htmlElement.querySelectorAll('pre[data-lang=in-place-edit]').forEach((element) => {
+            // Fetches the diagram text
+            element.querySelector('code[class=lang-in-place-edit]').style.display = 'none';
+            var dv = document.createElement("button");
+            dv.innerText = "Edit";
+            // document.getElementById('test').appendChild(dv)
+            element.appendChild(dv);
+            // element.parentNode.replaceChild(replacement, element);
+
+            // Creates a structure as mentioned in websequencediagrams api
+            // here: https://www.websequencediagrams.com/embedding.html
+            // var preTag = document.createElement('pre');
+            // var replacement = document.createElement('div');
+            // replacement.setAttribute('wsd_style', "modern-blue");
+            // replacement.classList.add('wsd');
+
+            // preTag.innerHTML = realDiagram.textContent;
+            // replacement.appendChild(preTag);
+
+            // // Replace the code with the diagram generation expectation
+            // element.parentNode.replaceChild(replacement, element);
+        });
+        // Do the magic!
+        next(htmlElement.innerHTML);
+        // in-place-edit
+    })
     // hook.afterEach(function (html, next) {
     //     // We load the HTML inside a DOM node to allow for manipulation
     //     var htmlElement = document.createElement('div');
